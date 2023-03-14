@@ -35,4 +35,10 @@ describe('<Button />',  () => {
 
         expect(button).toBeEnabled();
     });
+
+    it('should match snapshot', function () {
+        const fn = jest.fn();
+        const {container} = render(<Button text='Load more' disabled={false} onclick={fn} />);
+        expect(container.firstChild).toMatchSnapshot();
+    });
 })
